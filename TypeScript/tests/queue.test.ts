@@ -30,6 +30,18 @@ test("test peek: queue with 2 element should peek the one that was most recently
     expect(queue.peek()).toEqual(3)
 })
 
+test("test clear: after using clear the queue should be empty", () => {
+    const queue = createQueue()
+    queue.clear()
+    expect(queue.size).toEqual(0)
+})
+
+test("test dequeue: when the queue is empty return none", () => {
+    const queue = createQueue()
+    let tmp = queue.dequeue()
+    expect(tmp).toBeNull
+})
+
 let param = [5, 10, 1000000]
 // parameterized test, apply to each value of the parameter
 test.each(param)("test enqueue: enqueued number %d is correct", (nr) => {
